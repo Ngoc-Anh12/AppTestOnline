@@ -8,4 +8,10 @@
     <string name="text_pass">Password</string>
 
     <string name="iv_back_description">Back</string>
+
+    <!--text button home-->
+    <string name="course">Course</string>
+    <string name="document">Document</string>
+    <string name="test">Test</string>
+    <string name="account">Account</string>
 </resources>
