@@ -25,6 +25,7 @@
     <dimen name="smaller_text_view_size">10sp</dimen>
     <dimen name="small_text_view_size">12sp</dimen>
     <dimen name="normal_text_view_size">16sp</dimen>
+    <dimen name="normaler_text_view_size">18sp</dimen>
     <dimen name="large_text_view_size">30sp</dimen>
 
     <!--padding-->
