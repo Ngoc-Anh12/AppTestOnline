@@ -19,8 +19,9 @@
     <color name="violet">#898EF6</color>
     <color name="yellow">#FFBC89</color>
     <color name="dark_blue">#16236A</color>
-    <color name="color_background_home">#E1EDFF</color>
+    <color name="color_background">#E1EDFF</color>
 
     <color name="color_search"> #E1EDFF</color>
     <color name="color_title">#202033</color>
+    <color name="color_red">#C02127</color>
 </resources>

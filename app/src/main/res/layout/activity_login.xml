@@ -9,18 +9,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageButton
-            android:id="@+id/image_button_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/iv_back_description"
-            android:scaleType="centerInside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            android:id="@+id/layout_header"
+            layout="@layout/layout_header"/>
 
         <ImageView
             android:id="@+id/img"
@@ -30,7 +22,7 @@
             android:src="@drawable/background3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/image_button_back" />
+            app:layout_constraintTop_toBottomOf="@+id/layout_header" />
 
         <TextView
             android:id="@+id/title_login"

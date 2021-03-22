@@ -64,32 +64,6 @@ public class MainActivity extends AppCompatActivity {
         timer = new Timer();
         timer.schedule(timerTask, DELAY_MS,PERIOD_MS);
         layoutDots.setViewPager(viewPager);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                switch (state) {
-                    case ViewPager.SCROLL_STATE_IDLE:
-                        break;
-                    case ViewPager.SCROLL_STATE_DRAGGING:
-                        break;
-                    case ViewPager.SCROLL_STATE_SETTLING:
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
     }
 
     private void initView() {

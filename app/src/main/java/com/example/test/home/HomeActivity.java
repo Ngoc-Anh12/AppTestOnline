@@ -41,17 +41,14 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(intentAcc);
         });
 
-        btnDoc.setOnClickListener(view ->{
-            Intent intentDoc = new Intent(HomeActivity.this, DocumentActivity.class);
-            startActivity(intentDoc);
-        });
+
     }
 
     private void init() {
         layout = findViewById(R.id.layout);
         btnCourse = layout.findViewById(R.id.ll_course);
         btnTest = layout.findViewById(R.id.ll_test);
-        btnDoc = layout.findViewById(R.id.ll_document);
+     //   btnDoc = layout.findViewById(R.id.ll_document);
         btnAcc = layout.findViewById(R.id.ll_acc);
     }
 }

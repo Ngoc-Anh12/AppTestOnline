@@ -5,36 +5,13 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="@dimen/padding_small"
-    android:paddingLeft="@dimen/padding_small"
+    android:paddingRight="@dimen/padding_normal"
+    android:paddingLeft="@dimen/padding_normal"
     tools:context=".course.CourseActivity">
 
-    <ImageButton
-        android:id="@+id/image_button_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icon"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/iv_back_description"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="@id/title_list_course"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/title_list_course"
-        android:textColor="@color/color_title"
-        android:textSize="@dimen/normaler_text_view_size"
-        android:text="@string/title_list_course"
-        android:paddingLeft="@dimen/margin_left_small"
-        android:layout_marginTop="@dimen/margin_top_small"
-        android:layout_marginRight="@dimen/margin_right_large"
-        android:layout_marginLeft="@dimen/margin_left_large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <include
+        android:id="@+id/layout_header"
+        layout="@layout/layout_header"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
@@ -43,7 +20,7 @@
         android:layout_marginTop="@dimen/margin_top_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_list_course" />
+        app:layout_constraintTop_toBottomOf="@id/layout_header" />
 
     <me.relex.circleindicator.CircleIndicator
         android:id="@+id/layout_dots"
@@ -63,8 +40,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/layout_feature"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout_dots"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
