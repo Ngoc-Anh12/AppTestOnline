@@ -20,9 +20,11 @@ import com.example.test.R;
 import com.example.test.login.LoginActivity;
 import com.example.test.login.ViewPagerAdapter;
 import com.example.test.register.RegisterActivity;
+import com.example.test.utils.GFingerPrint;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.Executor;
 
 import me.relex.circleindicator.CircleIndicator;
 
