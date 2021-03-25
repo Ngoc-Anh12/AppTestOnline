@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".account.EditProfileActivity">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <include
+                android:id="@+id/layout_header"
+                layout="@layout/layout_header"/>
+            <LinearLayout
+                android:layout_margin="@dimen/margin_right_small"
+                android:layout_marginLeft="@dimen/margin_left_small"
+                android:padding="@dimen/padding_normal"
+                android:background="@color/background_edit_text"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ho va ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:id="@+id/edit_text_username"
+                    android:textColor="@color/color_title"
+                    android:textSize="@dimen/normal_text_view_size"
+                    android:inputType="text"
+                    android:background="@color/background_edit_text"
+                    android:layout_marginTop="@dimen/margin_top_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+
+           <!-- <LinearLayout
+                android:layout_marginTop="@dimen/margin_top_small"
+                android:padding="@dimen/padding_normal"
+                android:background="@color/background_edit_text"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ho va ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:textColor="@color/color_title"
+                    android:textSize="@dimen/normal_text_view_size"
+                    android:inputType="text"
+                    android:padding="@dimen/padding_normal"
+                    android:background="@color/background_edit_text"
+                    android:layout_marginTop="@dimen/margin_top_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/margin_top_small"
+                android:padding="@dimen/padding_normal"
+                android:background="@color/background_edit_text"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ho va ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:textColor="@color/color_title"
+                    android:textSize="@dimen/normal_text_view_size"
+                    android:inputType="text"
+                    android:padding="@dimen/padding_normal"
+                    android:background="@color/background_edit_text"
+                    android:layout_marginTop="@dimen/margin_top_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/margin_top_small"
+                android:padding="@dimen/padding_normal"
+                android:background="@color/background_edit_text"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ho va ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:textColor="@color/color_title"
+                    android:textSize="@dimen/normal_text_view_size"
+                    android:inputType="text"
+                    android:padding="@dimen/padding_normal"
+                    android:background="@color/background_edit_text"
+                    android:layout_marginTop="@dimen/margin_top_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/margin_top_small"
+                android:padding="@dimen/padding_normal"
+                android:background="@color/background_edit_text"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ho va ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:textColor="@color/color_title"
+                    android:textSize="@dimen/normal_text_view_size"
+                    android:inputType="text"
+                    android:padding="@dimen/padding_normal"
+                    android:background="@color/background_edit_text"
+                    android:layout_marginTop="@dimen/margin_top_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/margin_top_small"
+                android:padding="@dimen/padding_normal"
+                android:background="@color/background_edit_text"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Ho va ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:textColor="@color/color_title"
+                    android:textSize="@dimen/normal_text_view_size"
+                    android:inputType="text"
+                    android:padding="@dimen/padding_normal"
+                    android:background="@color/background_edit_text"
+                    android:layout_marginTop="@dimen/margin_top_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+            </LinearLayout>-->
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_login"
+                android:textSize="@dimen/normal_text_view_size"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:text="@string/btn_update_infor"
+                android:background="@drawable/btn_gradient"
+                android:layout_marginTop="@dimen/margin_top_small"
+                android:layout_marginRight="@dimen/margin_right_normal"
+                android:layout_marginLeft="@dimen/margin_left_normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_text_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

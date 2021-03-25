@@ -41,4 +41,12 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.6'
     // circle image view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //flex box layout
+    implementation 'com.google.android:flexbox:2.0.1'
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //okhttp
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
 }

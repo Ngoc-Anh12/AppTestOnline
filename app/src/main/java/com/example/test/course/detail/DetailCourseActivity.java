@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.test.R;
@@ -21,7 +22,7 @@ import com.google.android.material.tabs.TabLayout;
 public class DetailCourseActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager container;
-    ImageButton imgBack, imgHome;
+    ImageView imgBack;
     TextView title;
     View layoutHeader;
     @Override
@@ -33,7 +34,6 @@ public class DetailCourseActivity extends AppCompatActivity {
         setOnclick();
         //set title toolbar
         title.setText(R.string.title_toolbar_detail_course);
-        imgHome.setVisibility(View.GONE);
     }
 
     private void setOnclick() {
@@ -57,8 +57,7 @@ public class DetailCourseActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tab_layout);
         container = findViewById(R.id.container);
         layoutHeader = findViewById(R.id.layout_header);
-        imgBack = layoutHeader.findViewById(R.id.image_button_back);
-        imgHome = layoutHeader.findViewById(R.id.home);
-        title = layoutHeader.findViewById(R.id.title);
+        imgBack = findViewById(R.id.image_button_back);
+        title = findViewById(R.id.title);
     }
 }

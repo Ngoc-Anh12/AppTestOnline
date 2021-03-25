@@ -6,7 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,7 +21,7 @@ import me.relex.circleindicator.CircleIndicator;
 
 public class CourseActivity extends AppCompatActivity {
     View layout;
-    LinearLayout llMath, llEnglish, llHistory, llLiterature;
+    LinearLayout llMath, llEnglish, llHistory, llLiterature, llOnline, llBiography;
     TextView titleMath, titleEnglish, titleHistory, titleLiterature , titleToolbar;
     ViewPager viewPager;
     int NUM_PAGES = 2;
@@ -29,7 +29,7 @@ public class CourseActivity extends AppCompatActivity {
     final long DELAY_MS = 3000;//delay in milliseconds before task is to be executed
     final long PERIOD_MS = 3000; // time in milliseconds between successive task executions.
     CircleIndicator layoutDots;
-    ImageButton imageButtonBack;
+    ImageView imageButtonBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,25 +73,30 @@ public class CourseActivity extends AppCompatActivity {
     private void handle() {
         titleMath.setText(R.string.title_math);
         titleEnglish.setText(R.string.title_english);
-        //titleHistory.setText(R.string.title_history);
+        titleHistory.setText(R.string.title_history);
         titleLiterature.setText(R.string.title_literature);
         titleToolbar.setText(R.string.title_list_course);
+        llOnline.setVisibility(View.GONE);
     }
 
     private void init() {
         layout = findViewById(R.id.layout);
         llMath = layout.findViewById(R.id.ll_course);
         llEnglish = layout.findViewById(R.id.ll_test);
-       // llHistory = layout.findViewById(R.id.ll_document);
+        llHistory = layout.findViewById(R.id.ll_document);
         llLiterature = layout.findViewById(R.id.ll_acc);
+        llOnline = layout.findViewById(R.id.ll_online_course);
+
         titleMath = llMath.findViewById(R.id.text_course);
         titleEnglish = llEnglish.findViewById(R.id.text_test);
-       // titleHistory = llHistory.findViewById(R.id.text_doc);
+        titleHistory = llHistory.findViewById(R.id.text_doc);
         titleLiterature = llLiterature.findViewById(R.id.text_acc);
+
         viewPager = findViewById(R.id.view_pager);
         layoutDots = findViewById(R.id.layout_dots);
         imageButtonBack = findViewById(R.id.image_button_back);
         titleToolbar = findViewById(R.id.title);
+
     }
     @Override
     protected void onDestroy() {

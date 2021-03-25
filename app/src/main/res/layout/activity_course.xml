@@ -5,8 +5,6 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="@dimen/padding_normal"
-    android:paddingLeft="@dimen/padding_normal"
     tools:context=".course.CourseActivity">
 
     <include

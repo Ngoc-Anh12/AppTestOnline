@@ -6,12 +6,13 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.test.R;
 import com.example.test.home.HomeActivity;
 
 public class RegisterActivity extends AppCompatActivity {
-    ImageButton imageButtonBack;
+    ImageView imageButtonBack;
     AppCompatButton btnRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

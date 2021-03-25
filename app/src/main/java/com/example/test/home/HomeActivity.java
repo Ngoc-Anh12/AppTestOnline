@@ -2,6 +2,8 @@ package com.example.test.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,12 +19,23 @@ import com.example.test.test.TestActivity;
 public class HomeActivity extends AppCompatActivity {
     View layout;
     LinearLayout btnCourse, btnTest, btnDoc, btnAcc;
+    RecyclerView recyclerNews;
+    NewsAdapter newsAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         init();
         setOnclick();
+        initAdapter();
+    }
+
+    private void initAdapter() {
+        newsAdapter = new NewsAdapter(this);
+        recyclerNews.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        recyclerNews.setLayoutManager(linearLayoutManager);
+        recyclerNews.setAdapter(newsAdapter);
     }
 
     private void setOnclick() {
@@ -50,5 +63,6 @@ public class HomeActivity extends AppCompatActivity {
         btnTest = layout.findViewById(R.id.ll_test);
      //   btnDoc = layout.findViewById(R.id.ll_document);
         btnAcc = layout.findViewById(R.id.ll_acc);
+        recyclerNews = findViewById(R.id.recycler_news);
     }
 }
