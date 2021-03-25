@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1423387954/Test.iml" filepath="$PROJECT_DIR$/.idea/modules/-1423387954/Test.iml" group="Test" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app.iml" group="Test/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-994141511/commonlib.iml" filepath="$PROJECT_DIR$/.idea/modules/-994141511/commonlib.iml" group="Test/commonlib" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1115995262/mobilertc.iml" filepath="$PROJECT_DIR$/.idea/modules/1115995262/mobilertc.iml" group="Test/mobilertc" />
     </modules>
   </component>
 </project>

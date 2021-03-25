@@ -12,14 +12,18 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.test.R;
+import com.example.test.home.HomeActivity;
 import com.example.test.login.LoginActivity;
 import com.example.test.login.ViewPagerAdapter;
 import com.example.test.register.RegisterActivity;
+import com.example.test.utils.AppData;
+import com.example.test.utils.DataServices;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -64,32 +68,6 @@ public class MainActivity extends AppCompatActivity {
         timer = new Timer();
         timer.schedule(timerTask, DELAY_MS,PERIOD_MS);
         layoutDots.setViewPager(viewPager);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                switch (state) {
-                    case ViewPager.SCROLL_STATE_IDLE:
-                        break;
-                    case ViewPager.SCROLL_STATE_DRAGGING:
-                        break;
-                    case ViewPager.SCROLL_STATE_SETTLING:
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
     }
 
     private void initView() {
@@ -100,14 +78,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handle() {
-        btnLogin.setOnClickListener(view ->{
-            Intent intentLogin = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intentLogin);
-        });
-        btnRegister.setOnClickListener(view ->{
-            Intent intentRegister = new Intent(MainActivity.this, RegisterActivity.class);
-            startActivity(intentRegister);
-        });
+       String test = DataServices.getInstance(MainActivity.this).getToken()+"";
+       Log.d("LUUdev", test);
+        if(DataServices.getInstance(MainActivity.this).getToken() != null){
+            Intent intentHome = new Intent(MainActivity.this, HomeActivity.class);
+            intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intentHome);
+        }
+        else {
+            btnLogin.setOnClickListener(view -> {
+                Intent intentLogin = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intentLogin);
+            });
+            btnRegister.setOnClickListener(view -> {
+                Intent intentRegister = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(intentRegister);
+            });
+        }
     }
 
     @Override

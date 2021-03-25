@@ -2,6 +2,7 @@
     <string name="app_name">Test</string>
     <string name="login_title"> Login</string>
     <string name="register_title">Register</string>
+    <string name="sign_out">Sign out</string>
 
     <!--text hint-->
     <string name="text_username">User name</string>
@@ -15,7 +16,28 @@
     <string name="test">Test</string>
     <string name="account">Account</string>
     <string name="news">News</string>
+    <string name="online_course">Online Course</string>
 
     <!--title course-->
     <string name="title_list_course">List course</string>
+    <string name="title_math">Math</string>
+    <string name="title_english">English</string>
+    <string name="title_history">History</string>
+    <string name="title_literature">Literature</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--title tab layout-->
+    <string name="title_tab_lesson">Lessons</string>
+    <string name="title_tab_document">@string/document</string>
+
+    <!--title toolbar detail course-->
+    <string name="title_toolbar_detail_course">Detail Lessons</string>
+    <!--title button page account-->
+    <string name="title_profile">Profile</string>
+    <string name="title_button_history">@string/title_history</string>
+    <string name="title_feedback">Feedback</string>
+
+    <!-- account -->
+    <string name="btn_update_infor">Update profile</string>
+    <string name="text_see_more">See more</string>
 </resources>

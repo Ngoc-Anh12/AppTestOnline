@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/color_background_home"
+    android:orientation="vertical"
+    android:background="@color/color_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home.HomeActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/color_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.HomeActivity">
+
 
      <LinearLayout
          android:id="@+id/ll_header"
@@ -24,7 +35,7 @@
                 android:layout_marginLeft="@dimen/margin_left_small"
                 android:layout_marginTop="@dimen/margin_top_small"
                 android:layout_width="343dp"
-                android:layout_height="158dp"/>
+                android:layout_height="wrap_content"/>
 
             <include
                 android:id="@+id/layout"
@@ -36,32 +47,58 @@
                 app:layout_constraintTop_toBottomOf="@id/img_banner"/>
         </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_new"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margin_top_large"
         android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
-            android:textAllCaps="false"
-            android:text="@string/news"
-            android:layout_marginTop="@dimen/margin_top_small"
-            android:background="@drawable/btn_corner"
+            android:id="@+id/tv_title_new"
+
             android:layout_width="112dp"
-            android:layout_height="32dp"/>
+            android:layout_height="32dp"
+            android:background="@drawable/btn_corner"
+            android:drawableRight="@drawable/ic_baseline_navigate_next_24"
+            android:text="@string/news"
+            android:textAllCaps="false"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="@dimen/margin_top_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/layoutR"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_new">
 
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/recycler_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_title_new" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="@dimen/margin_top_small"
+            android:layout_marginRight="@dimen/margin_right_small"
+            android:text="@string/text_see_more"
+            android:textColor="@color/blue_start"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutR" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+</ScrollView>

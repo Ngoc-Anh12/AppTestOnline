@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin_top_small"
     android:layout_marginBottom="@dimen/margin_top_bottom_normal"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:id="@+id/ll"
-        android:layout_marginTop="@dimen/margin_top_bottom_large"
+        android:paddingTop="@dimen/padding_normal"
+        android:paddingBottom="@dimen/padding_normal"
         android:orientation="horizontal"
         android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
+
             android:id="@+id/ll_course"
-            android:layout_marginLeft="@dimen/btn_margin_left"
-            android:layout_marginRight="@dimen/btn_margin_right"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+           android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal"
             android:gravity="center"
             android:background="@drawable/btn_course"
             android:orientation="horizontal"
-            android:layout_width="164dp"
-            android:layout_height="60dp">
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp">
 
             <ImageView
                 android:src="@drawable/play"
@@ -42,16 +45,17 @@
 
         <LinearLayout
             android:id="@+id/ll_test"
-            android:layout_marginLeft="@dimen/btn_margin_left"
-            android:layout_marginRight="@dimen/btn_margin_right"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:background="@drawable/background_test"
             app:layout_constraintStart_toEndOf="@id/ll_course"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="164dp"
-            android:layout_height="60dp">
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp">
 
             <ImageView
                 android:src="@drawable/edit"
@@ -66,52 +70,57 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/padding_normal" />
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="@dimen/margin_top_bottom_large"
-        android:layout_marginBottom="@dimen/margin_top_bottom_normal"
+        android:paddingTop="@dimen/padding_normal"
+        android:paddingBottom="@dimen/padding_normal"
         android:orientation="horizontal"
         android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
             android:id="@+id/ll_document"
-            android:layout_marginLeft="@dimen/btn_margin_left"
-            android:layout_marginRight="@dimen/btn_margin_right"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:gravity="center"
-            android:background="@drawable/background_document"
             android:orientation="horizontal"
-            android:layout_width="164dp"
-            android:layout_height="60dp">
+            android:background="@drawable/background_document"
+            app:layout_constraintStart_toEndOf="@id/ll_course"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp">
 
             <ImageView
                 android:src="@drawable/folder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
             <TextView
                 android:id="@+id/text_doc"
-                android:textColor="@color/white"
-                android:text="@string/document"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/padding_normal" />
+                android:paddingLeft="@dimen/padding_normal"
+                android:text="@string/document"
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_acc"
-            android:layout_marginLeft="@dimen/btn_margin_left"
-            android:layout_marginRight="@dimen/btn_margin_right"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:background="@drawable/background_acc"
             app:layout_constraintStart_toEndOf="@id/ll_course"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="164dp"
-            android:layout_height="60dp">
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp">
 
             <ImageView
                 android:src="@drawable/profile"
@@ -120,12 +129,80 @@
 
             <TextView
                 android:id="@+id/text_acc"
+                android:textColor="@color/white"
+                android:text="@string/account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/padding_normal" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingTop="@dimen/padding_normal"
+        android:paddingBottom="@dimen/padding_normal"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ll_online_course"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/background_online_course"
+            app:layout_constraintStart_toEndOf="@id/ll_course"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:src="@drawable/ic_baseline_collections_bookmark_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/text_online_course"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/padding_normal"
-                android:text="@string/account"
+                android:text="@string/online_course"
                 android:textColor="@color/white" />
         </LinearLayout>
+
+        <LinearLayout
+            android:visibility="invisible"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/background_test"
+            app:layout_constraintStart_toEndOf="@id/ll_course"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:src="@drawable/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+
+                android:textColor="@color/white"
+                android:text="@string/account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/padding_normal" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </LinearLayout>

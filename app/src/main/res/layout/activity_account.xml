@@ -2,8 +2,136 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/color_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".account.AccountActivity">
 
+    <include
+        android:id="@+id/layout_header"
+        app:layout_constraintTop_toTopOf="parent"
+        layout="@layout/layout_header"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_account"
+        app:civ_border_width="0dp"
+        android:padding="@dimen/padding_normal"
+        android:layout_marginTop="@dimen/margin_top_small"
+        android:src="@drawable/aaa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_header"
+        android:layout_width="187dp"
+        android:layout_height="187dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_profile"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:padding="15dp"
+        android:layout_marginRight="@dimen/padding_large"
+        android:layout_marginLeft="@dimen/padding_large"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/background_btn_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/color_title"
+            android:textSize="@dimen/normal_text_view_size"
+            android:paddingLeft="24dp"
+            android:text="@string/title_profile"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <ImageButton
+            android:layout_marginRight="@dimen/padding_normal"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_history"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:padding="15dp"
+        android:layout_marginRight="@dimen/padding_large"
+        android:layout_marginLeft="@dimen/padding_large"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/background_btn_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/color_title"
+            android:textSize="@dimen/normal_text_view_size"
+            android:paddingLeft="24dp"
+            android:text="@string/title_button_history"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <ImageButton
+            android:layout_marginRight="@dimen/padding_normal"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_feedback"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:padding="15dp"
+        android:layout_marginRight="@dimen/padding_large"
+        android:layout_marginLeft="@dimen/padding_large"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/background_btn_account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/color_title"
+            android:textSize="@dimen/normal_text_view_size"
+            android:paddingLeft="24dp"
+            android:text="@string/title_feedback"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <ImageButton
+            android:layout_marginRight="@dimen/padding_normal"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_baseline_navigate_next_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:textSize="@dimen/normal_text_view_size"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:text="@string/sign_out"
+        android:background="@drawable/btn_sign_out"
+        android:layout_marginTop="@dimen/margin_top_small"
+        android:layout_marginRight="@dimen/margin_right_normal"
+        android:layout_marginLeft="@dimen/margin_left_normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
