@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/padding_normal"
+    android:padding="@dimen/padding_normal"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/img_new"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="75dp"
+        android:layout_height="75dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/image" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:maxLines="2"
+        android:text="Khóa học test các loại học liệu"
+        android:textColor="@color/color_title"
+        android:textSize="@dimen/small_text_view_size"
+        android:layout_marginLeft="@dimen/margin_left_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/img_new"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_title_school"
+        android:text="Trường THPT Nam Hạ Long"
+        android:padding="@dimen/padding_small"
+        android:textSize="@dimen/small_text_view_size"
+        android:layout_marginLeft="@dimen/margin_left_small"
+        app:layout_constraintStart_toEndOf="@id/img_new"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/img_calendar"
+        android:padding="@dimen/padding_small"
+        android:src="@drawable/calendar"
+        android:layout_marginLeft="@dimen/margin_left_small"
+        app:layout_constraintBottom_toBottomOf="@id/img_new"
+        app:layout_constraintStart_toEndOf="@id/img_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_time_start"
+        android:text="28/01/2021"
+        android:paddingLeft="@dimen/padding_normal"
+        app:layout_constraintBottom_toBottomOf="@id/img_calendar"
+        app:layout_constraintStart_toEndOf="@id/img_calendar"
+        app:layout_constraintTop_toTopOf="@id/img_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_match"
+        android:text=" - "
+        app:layout_constraintBottom_toBottomOf="@id/tv_time_start"
+        app:layout_constraintStart_toEndOf="@id/tv_time_start"
+        app:layout_constraintTop_toTopOf="@id/tv_time_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_time_end"
+        android:text="14/02/2021"
+        android:paddingLeft="@dimen/padding_normal"
+        app:layout_constraintBottom_toBottomOf="@id/tv_match"
+        app:layout_constraintStart_toEndOf="@id/tv_match"
+        app:layout_constraintTop_toTopOf="@id/tv_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
