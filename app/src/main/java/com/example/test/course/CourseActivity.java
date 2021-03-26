@@ -12,7 +12,9 @@ import android.widget.TextView;
 
 import com.example.test.R;
 import com.example.test.course.detail.DetailCourseActivity;
+import com.example.test.course.detail.ListCourseActivity;
 import com.example.test.login.ViewPagerAdapter;
+import com.example.test.model.DetailCourse;
 import com.example.test.utils.AppData;
 
 import java.util.Timer;
@@ -31,6 +33,7 @@ public class CourseActivity extends AppCompatActivity {
     final long PERIOD_MS = 3000; // time in milliseconds between successive task executions.
     CircleIndicator layoutDots;
     ImageView imageButtonBack;
+    int SUBJECT_ID = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +50,8 @@ public class CourseActivity extends AppCompatActivity {
         });
 
         llEnglish.setOnClickListener(click ->{
-            Intent detailEnglish = new Intent(CourseActivity.this, DetailCourseActivity.class);
+            Intent detailEnglish = new Intent(CourseActivity.this, ListCourseActivity.class);
+            detailEnglish.putExtra("subject_id", SUBJECT_ID );
             startActivity(detailEnglish);
         });
     }

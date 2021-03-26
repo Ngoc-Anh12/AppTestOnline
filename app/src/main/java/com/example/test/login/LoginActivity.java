@@ -6,8 +6,10 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.example.test.R;
 import com.example.test.core.retrofit.ApiClient;
@@ -33,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     final RequestApi requestAPI = ApiClient.getClient().create(RequestApi.class);
     boolean iCheck = false;
     boolean btnLoginCheck = false;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class LoginActivity extends AppCompatActivity {
 
        // checkFieldForEmpty();
         handle();
+        progressBar.setVisibility(View.VISIBLE);
+
     }
 
     void checkFieldForEmpty() {
@@ -82,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
         edit_text_username = (EditText) findViewById(R.id.edit_text_username);
         edit_text_pass = (EditText) findViewById(R.id.edit_text_pass);
+        progressBar = findViewById(R.id.progress_bar);
     }
     private void handleLogin (){
         user = new User();
@@ -93,20 +99,23 @@ public class LoginActivity extends AppCompatActivity {
                System.out.println(response);
                if(response.body() != null && response.body().data != null && response.body().error==0){
                    AppData.currentUser = response.body().data;
+                   progressBar.setVisibility(View.GONE);
                    DataServices.getInstance(LoginActivity.this).storeToken(response.body().data.getToken());
                    DataServices.getInstance(LoginActivity.this).save();
+
                    Intent intentHome = new Intent(LoginActivity.this, HomeActivity.class);
                    intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                    startActivity(intentHome);
                }
                else {
+                   progressBar.setVisibility(View.GONE);
                   return;
                }
            }
 
            @Override
            public void onFailure(Call<ResponseDTO<UserInfo>> call, Throwable t) {
-
+               progressBar.setVisibility(View.GONE);
            }
        });
     }

@@ -121,6 +121,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sign_out"
         android:textSize="@dimen/normal_text_view_size"
         android:textColor="@color/white"
         android:textAllCaps="false"
