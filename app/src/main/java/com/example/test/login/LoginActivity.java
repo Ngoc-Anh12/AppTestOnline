@@ -1,15 +1,19 @@
 package com.example.test.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
 
 import com.example.test.R;
 import com.example.test.core.retrofit.ApiClient;
@@ -21,21 +25,26 @@ import com.example.test.model.UserInfo;
 import com.example.test.utils.AppData;
 import com.example.test.utils.DataServices;
 
-import java.util.List;
+import java.util.concurrent.Executor;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    ImageView imageButtonBack;
+    ImageView imageButtonBack, fingerprint;
     AppCompatButton btnLogin;
+    TextView noiceFinger;
+
     private EditText edit_text_username,edit_text_pass;
     private User user;
     final RequestApi requestAPI = ApiClient.getClient().create(RequestApi.class);
     boolean iCheck = false;
     boolean btnLoginCheck = false;
     ProgressBar progressBar;
+    private androidx.biometric.BiometricPrompt biometricPrompt;
+    private androidx.biometric.BiometricPrompt.PromptInfo promptInfo;
+    private Executor executor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +56,54 @@ public class LoginActivity extends AppCompatActivity {
         handle();
         //progressBar.setVisibility(View.VISIBLE);
 
+        executor = ContextCompat.getMainExecutor(this);
+
+        biometricPrompt = new BiometricPrompt(LoginActivity.this, executor, new BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+
+                super.onAuthenticationError(errorCode, errString);
+                noiceFinger.setText("Authentication error:" + errString);
+                Toast.makeText(LoginActivity.this, "Authentication" + errString, Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+
+                super.onAuthenticationSucceeded(result);
+                noiceFinger.setText("Authentication succeed ...!");
+                Toast.makeText(LoginActivity.this,"Authentication succeed ...!",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+
+                super.onAuthenticationFailed();
+                noiceFinger.setText("Authentication Failed ...!");
+                Toast.makeText(LoginActivity.this,"Authentication Failed ...!",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        promptInfo= new BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Biometric")
+            .setSubtitle("")
+            .setDescription("")
+            .setNegativeButtonText("Cancel")
+            .build();
+
+        fingerprint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                biometricPrompt.authenticate(promptInfo);
+
+            }
+        });
     }
 
     void checkFieldForEmpty() {
@@ -88,6 +145,8 @@ public class LoginActivity extends AppCompatActivity {
         edit_text_username = (EditText) findViewById(R.id.edit_text_username);
         edit_text_pass = (EditText) findViewById(R.id.edit_text_pass);
         progressBar = findViewById(R.id.progress_bar);
+        fingerprint = findViewById(R.id.fingerprint);
+        noiceFinger = findViewById(R.id.noticeFinger);
     }
     private void handleLogin (){
         user = new User();
@@ -119,6 +178,8 @@ public class LoginActivity extends AppCompatActivity {
            }
        });
     }
+
+
 
     @Override
     public void onBackPressed() {

@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <include
             android:id="@+id/layout_header"
@@ -72,19 +72,20 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_login"
-            android:textSize="@dimen/normal_text_view_size"
+            android:layout_width="271dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="@dimen/margin_left_normal"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="@dimen/margin_right_normal"
+            android:background="@drawable/btn_gradient"
+            android:text="@string/login_title"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:text="@string/login_title"
-            android:background="@drawable/btn_gradient"
-            android:layout_marginTop="@dimen/margin_top_small"
-            android:layout_marginRight="@dimen/margin_right_normal"
-            android:layout_marginLeft="@dimen/margin_left_normal"
+            android:textSize="@dimen/normal_text_view_size"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_text_pass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintTop_toBottomOf="@id/edit_text_pass" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -95,6 +96,30 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/fingerprint"
+            android:layout_width="52dp"
+            android:layout_height="46dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.367"
+            app:layout_constraintStart_toEndOf="@+id/btn_login"
+            app:layout_constraintTop_toBottomOf="@+id/edit_text_pass"
+            app:layout_constraintVertical_bias="0.214"
+            app:srcCompat="?android:attr/fingerprintAuthDrawable"
+            android:contentDescription="TODO"
+            tools:targetApi="m" />
+
+        <TextView
+            android:id="@+id/noticeFinger"
+            android:layout_width="259dp"
+            android:layout_height="53dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
