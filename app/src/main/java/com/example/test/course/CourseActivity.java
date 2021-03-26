@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.test.R;
 import com.example.test.course.detail.DetailCourseActivity;
+import com.example.test.course.detail.ListCourseActivity;
 import com.example.test.login.ViewPagerAdapter;
 import com.example.test.utils.AppData;
 
@@ -47,7 +48,7 @@ public class CourseActivity extends AppCompatActivity {
         });
 
         llEnglish.setOnClickListener(click ->{
-            Intent detailEnglish = new Intent(CourseActivity.this, DetailCourseActivity.class);
+            Intent detailEnglish = new Intent(CourseActivity.this, ListCourseActivity.class);
             startActivity(detailEnglish);
         });
     }
