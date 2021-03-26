@@ -99,8 +99,7 @@
             app:layout_constraintTop_toBottomOf="@+id/edit_text_pass"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="?android:attr/fingerprintAuthDrawable"
-            android:contentDescription="TODO"
-            tools:targetApi="m" />
+            android:contentDescription="TODO" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
