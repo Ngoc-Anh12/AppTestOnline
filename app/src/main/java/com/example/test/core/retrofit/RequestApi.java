@@ -12,7 +12,10 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface RequestApi {
 
@@ -21,9 +24,10 @@ public interface RequestApi {
     @POST("/api/v2/sign")
     Call<ResponseDTO<Boolean>> RegisterImp(@Body User acc);
     @GET("/api/v2/courseOfsuject")
-    Call<ResponseDTO<ListCourse>> getListCourse(int subjectId, int userId );
+    Call<ResponseDTO<List<ListCourse>>> getListCourse(@Query("userId") int userId,@Query("subjectId") int subjectId, @Header("Authorization") String token );
     @GET("/api/v2/mucluc")
-    Call<ResponseDTO<Chapter>> getChapter(int userId, int courseId);
-    
+    Call<ResponseDTO<List<Chapter>>> getChapter(@Query("userId")int userId, @Query("courseId") int courseId);
+    @POST("/api/v2/loginToken")
+    Call<ResponseDTO<UserInfo>> getToken(@Header("Authorization") String token);
 
 }

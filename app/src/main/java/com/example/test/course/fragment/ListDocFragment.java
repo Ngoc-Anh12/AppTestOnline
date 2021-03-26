@@ -16,6 +16,8 @@ public class ListDocFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        final Bundle bundle=getArguments();
+        int subjectId=bundle.getInt("courseId-fragment");
         return inflater.inflate(R.layout.fragment_list_doc, container, false);
     }
 }

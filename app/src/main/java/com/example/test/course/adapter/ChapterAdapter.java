@@ -22,7 +22,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ViewHold
     List<Chapter> listChapter;
     Context context;
 
-    public ChapterAdapter(List<Chapter> listChapter, Context context) {
+    public void setData (List<Chapter> listChapter, Context context) {
         this.listChapter = listChapter;
         this.context = context;
     }
@@ -39,10 +39,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Chapter chapter = listChapter.get(position);
         holder.titleChapter.setText(chapter.getChapterName());
-        Unit unit = chapter.getUnit();
-        List<Unit> units = new ArrayList<>();
-        units.add(unit);
-        UnitChapter unitChapter = new UnitChapter(units, context);
+        UnitChapter unitChapter = new UnitChapter(chapter.getUnit(), context);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
         holder.recycle_view_unit_chapter.setHasFixedSize(true);
         holder.recycle_view_unit_chapter.setLayoutManager(linearLayoutManager);

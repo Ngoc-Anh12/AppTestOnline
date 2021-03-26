@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
        // checkFieldForEmpty();
         handle();
-        progressBar.setVisibility(View.VISIBLE);
+        //progressBar.setVisibility(View.VISIBLE);
 
     }
 
@@ -91,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void handleLogin (){
         user = new User();
+        progressBar.setVisibility(View.VISIBLE);
         user.setUsername(edit_text_username.getText().toString());
         user.setPassword(edit_text_pass.getText().toString());
         requestAPI.LoginImpl(user).enqueue(new Callback<ResponseDTO<UserInfo>>() {
@@ -102,7 +103,6 @@ public class LoginActivity extends AppCompatActivity {
                    progressBar.setVisibility(View.GONE);
                    DataServices.getInstance(LoginActivity.this).storeToken(response.body().data.getToken());
                    DataServices.getInstance(LoginActivity.this).save();
-
                    Intent intentHome = new Intent(LoginActivity.this, HomeActivity.class);
                    intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                    startActivity(intentHome);

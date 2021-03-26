@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toolbar;
 
 import com.example.test.R;
 import com.example.test.core.retrofit.ApiClient;
@@ -14,6 +16,8 @@ import com.example.test.course.adapter.ListCourseAdapter;
 import com.example.test.model.ListCourse;
 import com.example.test.model.ResponseDTO;
 import com.example.test.utils.AppData;
+import com.example.test.utils.DataServices;
+import com.example.test.utils.RecyclerItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,33 +40,57 @@ public class ListCourseActivity extends AppCompatActivity {
         Intent intent=getIntent();
         SUBJECT_ID = intent.getIntExtra("subject_id", 0);
 
-        userId = AppData.currentUser.getUserId();
+        //userId = AppData.currentUser.getUserId();
+
         init();
         initAdapter();
     }
 
     private void initAdapter() {
         listCourses = new ArrayList<ListCourse>();
+        listCourseAdapter = new ListCourseAdapter(this);
         callAPI();
-        listCourseAdapter = new ListCourseAdapter(listCourses, this);
         recycleViewList.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recycleViewList.setLayoutManager(linearLayoutManager);
-        recycleViewList.setAdapter(listCourseAdapter);
+        setOnclick();
+    }
+
+    private void setOnclick() {
+        recycleViewList.addOnItemTouchListener(new RecyclerItemClickListener(this, recycleViewList, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent = new Intent(ListCourseActivity.this, DetailCourseActivity.class);
+                intent.putExtra("courseId",listCourses.get(position).getCourseId());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }));
     }
 
     private void callAPI() {
-        requestAPI.getListCourse(SUBJECT_ID, userId).enqueue(new Callback<ResponseDTO<ListCourse>>() {
-            @Override
-            public void onResponse(Call<ResponseDTO<ListCourse>> call, Response<ResponseDTO<ListCourse>> response) {
-                System.out.println(response);
-            }
+        String token  = DataServices.getInstance(this).getToken();
+       requestAPI.getListCourse(15, 2, token).enqueue(new Callback<ResponseDTO<List<ListCourse>>>() {
+           @Override
+           public void onResponse(Call<ResponseDTO<List<ListCourse>>> call, Response<ResponseDTO<List<ListCourse>>> response) {
+               if(response.body() != null && response.body().data != null && response.body().error==0){
+                   for (ListCourse listCourse : response.body().data){
+                       listCourses.add(listCourse);
+                       listCourseAdapter.setData(listCourses, ListCourseActivity.this);
+                       recycleViewList.setAdapter(listCourseAdapter);
+                   }
+               }
+           }
 
-            @Override
-            public void onFailure(Call<ResponseDTO<ListCourse>> call, Throwable t) {
-                System.out.println(t);
-            }
-        });
+           @Override
+           public void onFailure(Call<ResponseDTO<List<ListCourse>>> call, Throwable t) {
+
+           }
+       });
     }
 
     private void init() {

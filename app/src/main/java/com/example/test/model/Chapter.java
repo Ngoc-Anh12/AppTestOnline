@@ -8,7 +8,15 @@ public class Chapter {
     private int chapterId;
     private String chapterName;
     @SerializedName("unit")
-    private Unit unit;
+    private List<Unit> unit;
+
+    public List<Unit> getUnit() {
+        return unit;
+    }
+
+    public void setUnit(List<Unit> unit) {
+        this.unit = unit;
+    }
 
     public int getChapterId() {
         return chapterId;
@@ -26,11 +34,5 @@ public class Chapter {
         this.chapterName = chapterName;
     }
 
-    public Unit getUnit() {
-        return unit;
-    }
 
-    public void setUnit(Unit unit) {
-        this.unit = unit;
-    }
 }

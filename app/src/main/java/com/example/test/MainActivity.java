@@ -18,9 +18,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.test.R;
+import com.example.test.core.retrofit.ApiClient;
+import com.example.test.core.retrofit.RequestApi;
 import com.example.test.home.HomeActivity;
 import com.example.test.login.LoginActivity;
 import com.example.test.login.ViewPagerAdapter;
+import com.example.test.model.ResponseDTO;
+import com.example.test.model.UserInfo;
 import com.example.test.register.RegisterActivity;
 import com.example.test.utils.AppData;
 import com.example.test.utils.DataServices;
@@ -29,6 +33,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
@@ -38,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     final long DELAY_MS = 3000;//delay in milliseconds before task is to be executed
     final long PERIOD_MS = 3000; // time in milliseconds between successive task executions.
     CircleIndicator layoutDots;
-
+    final RequestApi requestAPI = ApiClient.getClient().create(RequestApi.class);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,6 +88,21 @@ public class MainActivity extends AppCompatActivity {
        String test = DataServices.getInstance(MainActivity.this).getToken()+"";
        Log.d("LUUdev", test);
         if(DataServices.getInstance(MainActivity.this).getToken() != null){
+            requestAPI.getToken(test).enqueue(new Callback<ResponseDTO<UserInfo>>() {
+                @Override
+                public void onResponse(Call<ResponseDTO<UserInfo>> call, Response<ResponseDTO<UserInfo>> response) {
+                    if(response.body() != null && response.body().data != null && response.body().error==0){
+                        DataServices.getInstance(MainActivity.this).storeToken(response.body().data.getToken());
+                        DataServices.getInstance(MainActivity.this).save();
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<ResponseDTO<UserInfo>> call, Throwable t) {
+
+                }
+            });
             Intent intentHome = new Intent(MainActivity.this, HomeActivity.class);
             intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intentHome);

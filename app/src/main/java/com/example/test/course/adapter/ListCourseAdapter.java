@@ -18,7 +18,11 @@ public class ListCourseAdapter extends RecyclerView.Adapter<ListCourseAdapter.Vi
     private List<ListCourse> listCourses;
     private Context context;
 
-    public ListCourseAdapter(List<ListCourse> listCourses, Context context) {
+    public ListCourseAdapter(Context context) {
+        this.context = context;
+    }
+
+    public void setData(List<ListCourse> listCourses, Context context) {
         this.listCourses = listCourses;
         this.context = context;
     }

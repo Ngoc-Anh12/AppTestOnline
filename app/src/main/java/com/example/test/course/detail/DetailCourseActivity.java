@@ -25,6 +25,10 @@ public class DetailCourseActivity extends AppCompatActivity {
     ImageView imgBack;
     TextView title;
     View layoutHeader;
+    int courseId =0 ;
+    ListLessonFragment listLessonFragment;
+    ListDocFragment listDocFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,12 @@ public class DetailCourseActivity extends AppCompatActivity {
         setOnclick();
         //set title toolbar
         title.setText(R.string.title_toolbar_detail_course);
+        Intent intent = getIntent();
+        courseId = intent.getIntExtra("courseId",0);
+        Bundle bundle = new Bundle();
+        bundle.putInt("courseId-fragment",courseId);
+        listLessonFragment.setArguments(bundle);
+        listDocFragment.setArguments(bundle);
     }
 
     private void setOnclick() {
@@ -46,8 +56,8 @@ public class DetailCourseActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerTabLayoutAdapter adapter = new ViewPagerTabLayoutAdapter(getSupportFragmentManager());
-        adapter.addFrag(new ListLessonFragment(), getResources().getString(R.string.title_tab_lesson));
-        adapter.addFrag(new ListDocFragment(), getResources().getString(R.string.title_tab_document));
+        adapter.addFrag(listLessonFragment, getResources().getString(R.string.title_tab_lesson));
+        adapter.addFrag(listDocFragment, getResources().getString(R.string.title_tab_document));
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -59,5 +69,7 @@ public class DetailCourseActivity extends AppCompatActivity {
         layoutHeader = findViewById(R.id.layout_header);
         imgBack = findViewById(R.id.image_button_back);
         title = findViewById(R.id.title);
+         listLessonFragment = new ListLessonFragment();
+         listDocFragment = new ListDocFragment();
     }
 }

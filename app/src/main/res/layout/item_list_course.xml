@@ -2,8 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="@dimen/padding_small"
     android:layout_marginTop="@dimen/padding_normal"
-    android:padding="@dimen/padding_normal"
+    android:layout_marginLeft="@dimen/padding_normal"
+    android:layout_marginRight="@dimen/padding_normal"
+    android:background="@drawable/background_corner"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -27,7 +30,7 @@
         android:maxLines="2"
         android:text="Tin hot nhất trong ngày 20/01/2021."
         android:textColor="@color/color_title"
-        android:textSize="@dimen/small_text_view_size"
+        android:textSize="20sp"
         android:layout_marginLeft="@dimen/margin_left_small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/img_new"
