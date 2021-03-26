@@ -10,8 +10,28 @@
         android:id="@+id/layout_header"
         layout="@layout/layout_header"/>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <EditText
+        android:id="@+id/search"
+        android:padding="@dimen/padding_normal"
+        android:layout_marginLeft="@dimen/margin_left_large"
+        android:background="@drawable/background_corner"
+        android:drawableLeft="@drawable/search"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout_header"
+        android:layout_width="303dp"
+        android:layout_height="40dp"/>
+
+    <ImageView
+        app:layout_constraintBottom_toBottomOf="@id/search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/search"
+        app:layout_constraintTop_toTopOf="@id/search"
+        android:src="@drawable/flter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_view_list_course"
+       app:layout_constraintTop_toBottomOf="@id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

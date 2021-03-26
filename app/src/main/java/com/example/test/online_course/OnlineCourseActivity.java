@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.test.R;
-import com.example.test.utils.ZoomManager;
+//import com.example.test.utils.ZoomManager;
 
 public class OnlineCourseActivity extends AppCompatActivity {
-EditText txt_id_room, txt_password_room;
+/*EditText txt_id_room, txt_password_room;
 Button btn_join;
     ZoomManager zoomManager;
     Context context;
@@ -41,5 +41,5 @@ Button btn_join;
                 zoomManager.joinMeeting(OnlineCourseActivity.this,"5685177026", "56UMNn","luutb");
             }
         });
-    }
+    }*/
 }

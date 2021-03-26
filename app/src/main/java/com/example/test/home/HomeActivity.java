@@ -16,6 +16,7 @@ import com.example.test.course.CourseActivity;
 import com.example.test.document.DocumentActivity;
 import com.example.test.online_course.OnlineCourseActivity;
 import com.example.test.test.TestActivity;
+import com.example.test.utils.AppData;
 
 public class HomeActivity extends AppCompatActivity {
     View layout;
