@@ -21,7 +21,7 @@ public class ApiClient {
                 .writeTimeout(1, TimeUnit.MINUTES)
                 .build();
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.2.213:5000")
+                .baseUrl("http://192.168.1.140:5000")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

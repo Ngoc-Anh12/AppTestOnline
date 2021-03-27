@@ -1,13 +1,20 @@
 package com.example.test.model;
 
+import java.util.List;
+
 public class Unit {
     private int unitId;
     private String unitName;
+    private List<Document> document;
 
-    public Unit(int unitId, String unitName) {
-        this.unitId = unitId;
-        this.unitName = unitName;
+    public List<Document> getDocument() {
+        return document;
     }
+
+    public void setDocument(List<Document> document) {
+        this.document = document;
+    }
+
 
     public int getUnitId() {
         return unitId;

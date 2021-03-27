@@ -10,20 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.test.R;
-import com.example.test.model.Chapter;
-import com.example.test.model.Unit;
+import com.example.test.model.Document;
 
 import java.util.List;
 
-public class UnitChapter extends RecyclerView.Adapter<UnitChapter.ViewHolder> {
-    List<Unit> listUnit;
+public class DocumentAdapter extends RecyclerView.Adapter<DocumentAdapter.ViewHolder> {
+    List<Document> doc ;
     Context context;
-
-    public void setData(List<Unit> listUnit, Context context) {
-        this.listUnit = listUnit;
+    public void setData(List<Document> doc, Context context){
+        this.doc = doc;
         this.context = context;
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,21 +31,20 @@ public class UnitChapter extends RecyclerView.Adapter<UnitChapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Unit unit = listUnit.get(position);
-        holder.titleUnit.setText(unit.getUnitName());
-
+        Document document = doc.get(position);
+        holder.titleChapter.setText(document.getDocumentOfUnitName());
     }
 
     @Override
     public int getItemCount() {
-        return listUnit.size();
+        return doc.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView titleUnit;
+        TextView titleChapter;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            titleUnit = itemView.findViewById(R.id.tv_title_unit_chapter);
+            titleChapter = itemView.findViewById(R.id.tv_title_unit_chapter);
         }
     }
 }

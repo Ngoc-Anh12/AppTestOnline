@@ -18,7 +18,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycle_view_unit_chapter"
-        android:layout_marginTop="@dimen/padding_normal"
+        android:layout_marginBottom="@dimen/margin_top_bottom_normal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

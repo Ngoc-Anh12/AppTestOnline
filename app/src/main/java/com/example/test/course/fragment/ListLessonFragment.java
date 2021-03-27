@@ -35,22 +35,26 @@ public class ListLessonFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list_lesson, container, false);
-        recyclerView = view.findViewById(R.id.recycle_view_list_course);
+        recyclerView = view.findViewById(R.id.recycle_view_doc);
         chapterList = new ArrayList<>();
         chapterAdapter = new ChapterAdapter();
         final Bundle bundle=getArguments();
         int subjectId=bundle.getInt("courseId-fragment");
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
         String token  = DataServices.getInstance(getContext()).getToken();
         requestAPI.getChapter(15, subjectId).enqueue(new Callback<ResponseDTO<List<Chapter>>>() {
             @Override
             public void onResponse(Call<ResponseDTO<List<Chapter>>> call, Response<ResponseDTO<List<Chapter>>> response) {
                 if(response.body() != null && response.body().data != null && response.body().error==0){
                     System.out.println(response.body().data);
-                    /*for (Chapter chapter : response.body().data){
+                    for (Chapter chapter : response.body().data){
                         chapterList.add(chapter);
                         chapterAdapter.setData(chapterList, getContext());
                         recyclerView.setAdapter(chapterAdapter);
-                    }*/
+
+                    }
                 }
             }
 
@@ -59,14 +63,10 @@ public class ListLessonFragment extends Fragment {
 
             }
         });
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setHasFixedSize(true);
-       // callAPI();
+
+
         return view;
     }
 
-    private void callAPI() {
 
-    }
 }
