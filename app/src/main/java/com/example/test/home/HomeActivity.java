@@ -60,7 +60,10 @@ public class HomeActivity extends AppCompatActivity {
             Intent intentAcc = new Intent(HomeActivity.this, OnlineCourseActivity.class);
             startActivity(intentAcc);
         });
-
+        btnDoc.setOnClickListener(view ->{
+            Intent intentAcc = new Intent(HomeActivity.this, DocumentActivity.class);
+            startActivity(intentAcc);
+        });
 
     }
 
@@ -68,7 +71,7 @@ public class HomeActivity extends AppCompatActivity {
         layout = findViewById(R.id.layout);
         btnCourse = layout.findViewById(R.id.ll_course);
         btnTest = layout.findViewById(R.id.ll_test);
-     //   btnDoc = layout.findViewById(R.id.ll_document);
+        btnDoc = layout.findViewById(R.id.ll_document);
         btnAcc = layout.findViewById(R.id.ll_acc);
         btnOnline = layout.findViewById(R.id.ll_online_course);
         recyclerNews = findViewById(R.id.recycler_news);

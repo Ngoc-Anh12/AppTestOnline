@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".document.DocumentActivity">
 
+    <include
+        android:id="@+id/layout_header"
+        layout="@layout/layout_header"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_down"
+        app:layout_constraintTop_toBottomOf="@id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
